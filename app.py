@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from paddleocr import PaddleOCR
 from PIL import Image
 import re
@@ -31,10 +31,14 @@ def perform_ocr():
             number_matches = re.findall(r'\d+(?:\.\d+)?', line_text)
             numbers.extend(number_matches)
 
-        return jsonify(numbers)
+        # Join the numbers as a single string
+        numbers_string = ' '.join(numbers)
+
+        return numbers_string
 
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        return f"An error occurred: {str(e)}", 500
 
 if __name__ == "__main__":
     app.run(debug=True)
+
