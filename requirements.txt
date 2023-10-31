@@ -1,4 +1,4 @@
-   paddlepaddle @ https://pypi.tuna.tsinghua.edu.cn/simple
+   paddlepaddle
    paddleocr>=2.0.1
    PyMuPDF==1.21.1
 
